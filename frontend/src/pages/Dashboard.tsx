@@ -221,7 +221,12 @@ export default function Dashboard({ onBackToLanding }: DashboardProps) {
     try {
       timelineHelpers = await startTimelineSimulation(false);
 
-      const response = await fetch(`/api/recommend/${activeCategory}`, {
+      const apiBase = import.meta.env.VITE_BACKEND_URL || (import.meta.env.DEV ? '' : 'https://omnimindhub.onrender.com');
+      const endpoint = apiBase 
+        ? `${apiBase.replace(/\/$/, '')}/api/recommend/${activeCategory}` 
+        : `/api/recommend/${activeCategory}`;
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
