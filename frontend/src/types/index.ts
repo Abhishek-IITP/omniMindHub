@@ -23,7 +23,7 @@ export interface RecommendationsResponse {
 export interface TimelineStep {
   id: string;
   label: string;
-  status: 'idle' | 'active' | 'completed';
+  status: 'idle' | 'active' | 'completed' |'failed';
   time?: string;
 }
 

@@ -431,6 +431,12 @@ export default function Dashboard({ onBackToLanding }: DashboardProps) {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const handleCopyJSON = () => {
+    navigator.clipboard.writeText(JSON.stringify(results, null, 2));
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <div className="app-container app-horizontal-layout">
       {/* Top Navigation Bar */}
@@ -744,7 +750,11 @@ export default function Dashboard({ onBackToLanding }: DashboardProps) {
               </div>
 
               <div className="doc-viewer-scroll">
-                <MarkdownViewer content={generateMarkdown()} />
+                <MarkdownViewer 
+                  content={generateMarkdown()} 
+                  copied={copied}
+                  onCopy={handleCopyMarkdown}
+                />
               </div>
             </div>
           )}
@@ -768,7 +778,11 @@ export default function Dashboard({ onBackToLanding }: DashboardProps) {
               </div>
 
               <div className="doc-viewer-scroll">
-                <JSONViewer content={results} />
+                <JSONViewer 
+                  content={results} 
+                  copied={copied}
+                  onCopy={handleCopyJSON}
+                />
               </div>
             </div>
           )}

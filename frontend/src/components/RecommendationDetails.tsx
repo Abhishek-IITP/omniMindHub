@@ -1,4 +1,3 @@
-import React from 'react';
 import { Star, ExternalLink, Play, BookOpen, Music, Gamepad2, Search, HelpCircle, X } from 'lucide-react';
 
 interface RecommendationDetailsProps {

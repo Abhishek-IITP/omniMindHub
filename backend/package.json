@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "server.js",
+  "main": "dist/server.js",
   "scripts": {
-    "dev": " tsx watch src/server.ts",
-    "start": "tsx src/server.ts"
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/src/server.js"
   },
   "dependencies": {
     "@langchain/core": "^1.2.1",
@@ -27,8 +28,5 @@
     "ts-node": "^10.9.2",
     "tsx": "^4.22.4",
     "typescript": "^5.9.3"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }
